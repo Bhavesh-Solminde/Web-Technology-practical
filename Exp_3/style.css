@@ -1,0 +1,98 @@
+/* style.css */
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --gap: 15px;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* --- Grid Layout --- */
+.gallery-container {
+    display: grid;
+    /* Auto-fit creates as many columns as fit. Min 250px wide, max 1 fraction of space. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px; /* Fixed height for uniformity in the grid */
+    gap: var(--gap);
+}
+
+.gallery-item {
+    overflow: hidden; /* Contains the image zoom */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers area without distortion */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* --- Hover Effects --- */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom in */
+    filter: brightness(1.1); /* Slight brighten */
+}
+
+/* --- Lightbox (Hidden by default) --- */
+.lightbox {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.9); 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Class to show lightbox via JS */
+.lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+#caption {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
