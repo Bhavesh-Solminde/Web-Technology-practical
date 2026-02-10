@@ -10,5 +10,5 @@ Practice repository for Web Technology experiments completed as part of the 2025
 
 ## Viewing the labs
 
-Open the desired file in a browser (e.g., `Exp_1/Exp_1.html`, `Exp_2/index.html`, or `Exp_3/index.html`). The CSS and JS files live alongside each experiment.
+Open the desired file in a browser (e.g., `Exp_1/Exp_1.html`, `Exp_2/index.html`, or `Exp_3/index.html`). The CSS and JS files live alongside each experiment
 
