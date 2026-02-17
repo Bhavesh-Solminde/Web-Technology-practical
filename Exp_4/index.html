@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Famous Monuments of India</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+}
+
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Responsive image heights */
+@media (max-width: 768px) {
+  .card img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card img {
+    height: 120px;
+  }
+  .about-section {
+    padding: 20px;
+  }
+}
+
+.about-section {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Indian Monuments</a>
+    <div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+
+<h1 class="text-center mb-5">Famous Monuments of India</h1>
+
+<!-- MONUMENT CARDS -->
+<div class="row g-4">
+
+<!-- Taj Mahal -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/taj.jpeg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Taj Mahal</h5>
+<a href="tajmahal.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Hawa Mahal -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/hawa1.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Hawa Mahal</h5>
+<a href="hawamahal.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Red Fort -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/redfort.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Red Fort</h5>
+<a href="redfort.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Gateway -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/GatewayofIndia.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Gateway of India</h5>
+<a href="gateway.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Qutub Minar -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/QutubMinar.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Qutub Minar</h5>
+<a href="qutubminar.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Golden Temple -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/GoldenTemple.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Golden Temple</h5>
+<a href="goldentemple.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- India Gate -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/IndiaGate.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">India Gate</h5>
+<a href="indiagate.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Charminar -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/Charminar.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Charminar</h5>
+<a href="charminar.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+<!-- Mysore Palace -->
+<div class="col-12 col-sm-6 col-md-4">
+<div class="card">
+<img src="images/MysorePalace.jpg" class="card-img-top img-fluid">
+<div class="card-body">
+<h5 class="card-title">Mysore Palace</h5>
+<a href="mysorepalace.html" class="btn btn-primary">View Details</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<!-- ABOUT SECTION -->
+<div class="container my-5" id="about">
+<div class="about-section text-center">
+<h2>About Me</h2>
+<p>
+This website is a project showcasing famous monuments of India.
+It provides historical and architectural information about each monument.
+Each monument has a separate detailed page with images and descriptions.
+</p>
+</div>
+</div>
+
+  <footer class="text-center p-3 mt-5 bg-dark text-white">
+    © 2026 Famous Monuments Project | All Rights Reserved
+  </footer>
+
+</body>
+</html>
