@@ -29,6 +29,7 @@ const questions = [
 
 let current = 0;
 let score = 0;
+let userAnswers = new Array(questions.length).fill(null);
 
 const questionEl = document.getElementById('question');
 const choicesEl = document.getElementById('choices');
@@ -56,6 +57,9 @@ function selectChoice(index) {
 	const buttons = choicesEl.querySelectorAll('button');
 	buttons.forEach(b => b.disabled = true);
 
+	// record user's answer
+	userAnswers[current] = index;
+
 	if (index === item.answer) {
 		score++;
 		buttons[index].classList.add('correct');
@@ -70,7 +74,15 @@ function selectChoice(index) {
 			};
 			document.body.addEventListener('animationend', onAnimEnd);
 		}
-	} 
+	} else {
+		// mark wrong selection and reveal correct
+		buttons[index].classList.add('wrong');
+		if (buttons[item.answer]) buttons[item.answer].classList.add('correct');
+		if (item.joke) {
+			resultEl.hidden = false;
+			resultEl.textContent = 'Close — but the joke answer was 67.';
+		}
+	}
 }
 
 nextBtn.addEventListener('click', () => {
@@ -88,7 +100,30 @@ function showResults() {
 	// stop wobbling when quiz ends
 	document.body.classList.remove('wobble');
 	resultEl.hidden = false;
-	resultEl.innerHTML = `<strong>Your score:</strong> ${score}/${questions.length} (${percent}%)`;
+
+	// build detailed results list
+	let html = `<strong>Your score:</strong> ${score}/${questions.length} (${percent}%)`;
+	html += '<ol class="final-list">';
+	for (let i = 0; i < questions.length; i++) {
+		const q = questions[i];
+		const user = userAnswers[i];
+		const isCorrect = user === q.answer;
+		const userText = user === null ? '<em>No answer</em>' : q.choices[user];
+		const correctText = q.choices[q.answer];
+		html += `<li class="final-item ${isCorrect ? 'final-correct' : 'final-wrong'}">`;
+		html += `<div class="final-q">Q${i+1}. ${q.q}</div>`;
+		html += `<div class="final-a">Your answer: <span class="user-answer ${isCorrect ? 'correct' : 'wrong'}">${userText}</span></div>`;
+		if (!isCorrect) {
+			html += `<div class="final-c">Correct answer: <span class="correct-answer">${correctText}</span></div>`;
+			html += `<div class="final-mark">Mark: <strong class="mark-zero">0</strong></div>`;
+		} else {
+			html += `<div class="final-mark">Mark: <strong class="mark-one">1</strong></div>`;
+		}
+		html += '</li>';
+	}
+	html += '</ol>';
+
+	resultEl.innerHTML = html;
 	nextBtn.textContent = 'Restart';
 	nextBtn.removeEventListener('click', nextHandler);
 	nextBtn.addEventListener('click', restartQuiz);

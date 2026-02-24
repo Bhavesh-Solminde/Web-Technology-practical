@@ -29,3 +29,14 @@ h1 { margin: 0 0 6px; font-size: 1.4rem; }
 .controls { text-align: right; }
 #nextBtn { padding: 8px 12px; border-radius: 4px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
 .result { margin-top: 12px; padding: 10px; background: #fff8e1; border: 1px solid #ffecb3; border-radius: 4px; }
+
+/* final results list */
+.final-list { padding-left: 18px; margin: 10px 0 0; }
+.final-item { margin-bottom: 10px; padding: 8px; background: #ffffff; border-radius: 4px; border: 1px solid #eee; }
+.final-q { font-weight: 600; margin-bottom: 4px; }
+.final-a { margin-bottom: 4px; }
+.user-answer.correct { color: #2e7d32; font-weight: 600; }
+.user-answer.wrong { color: #c62828; font-weight: 600; }
+.correct-answer { color: #2e7d32; }
+.mark-zero { color: #c62828; }
+.mark-one { color: #2e7d32; }
