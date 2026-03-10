@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERIS Weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body" class="clear">
+    <div class="background-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    
+    <div class="glass-container">
+        
+        <header class="app-header">
+            <h1 class="brand-title">AERIS</h1>
+            <div class="search-module">
+                <input type="text" id="cityInput" placeholder="Location search..." autocomplete="off"/>
+                <button onclick="getWeather()">
+                     <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="weather-dashboard">
+            
+            <section class="main-display">
+                <div class="location-group">
+                    <h2 id="city" class="city-name">Select Region</h2>
+                    <p id="region" class="region-name">To view atmospheric conditions</p>
+                    <div class="time-badge">
+                        <span id="localtime">---</span>
+                    </div>
+                </div>
+                
+                <div class="temperature-group">
+                    <div class="temp-row">
+                        <span id="temp" class="hero-temp">--�</span>
+                        <img id="icon" src="" alt="Weather condition" class="condition-icon" style="display:none;" />
+                    </div>
+                    <p id="feelslike" class="feels-text">Feels like --�C</p>
+                    <p id="desc" class="condition-desc">Waiting for data</p>
+                </div>
+            </section>
+
+            <section class="details-grid">
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Humidity</span>
+                        <span id="humidity" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Wind</span>
+                        <span id="wind" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Direction</span>
+                        <span id="winddir" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">???</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Gusts</span>
+                        <span id="gust" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Pressure</span>
+                        <span id="pressure" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">???</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Precip</span>
+                        <span id="precip" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Cloud Cover</span>
+                        <span id="cloud" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">???</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Visibility</span>
+                        <span id="visibility" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">???</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Dew Point</span>
+                        <span id="dewpoint" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel highlight-card">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">UV Index</span>
+                        <span id="uv" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Heat Index</span>
+                        <span id="heatindex" class="detail-value">--</span>
+                    </div>
+                </div>
+                
+                <div class="detail-card glass-panel">
+                    <span class="detail-icon">??</span>
+                    <div class="detail-info">
+                        <span class="detail-label">Wind Chill</span>
+                        <span id="windchill" class="detail-value">--</span>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const originalGetWeather = getWeather;
+        getWeather = function() {
+            document.getElementById('icon').style.display = 'block';
+            originalGetWeather();
+        }
+        
+        // Listen for enter key
+        document.getElementById('cityInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                getWeather();
+            }
+        });
+    </script>
+</body>
+</html>
