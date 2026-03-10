@@ -6,6 +6,8 @@
     <title>AERIS Weather</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Include Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body id="body" class="clear">
     <div class="background-mesh">
@@ -21,7 +23,7 @@
             <div class="search-module">
                 <input type="text" id="cityInput" placeholder="Location search..." autocomplete="off"/>
                 <button onclick="getWeather()">
-                     <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                     <i data-lucide="search" class="search-icon"></i>
                 </button>
             </div>
         </header>
@@ -39,17 +41,17 @@
                 
                 <div class="temperature-group">
                     <div class="temp-row">
-                        <span id="temp" class="hero-temp">--ï¿½</span>
+                        <span id="temp" class="hero-temp">--°</span>
                         <img id="icon" src="" alt="Weather condition" class="condition-icon" style="display:none;" />
                     </div>
-                    <p id="feelslike" class="feels-text">Feels like --ï¿½C</p>
+                    <p id="feelslike" class="feels-text">Feels like --°C</p>
                     <p id="desc" class="condition-desc">Waiting for data</p>
                 </div>
             </section>
 
             <section class="details-grid">
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="droplets" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Humidity</span>
                         <span id="humidity" class="detail-value">--</span>
@@ -57,7 +59,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="wind" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Wind</span>
                         <span id="wind" class="detail-value">--</span>
@@ -65,7 +67,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="compass" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Direction</span>
                         <span id="winddir" class="detail-value">--</span>
@@ -73,7 +75,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">???</span>
+                    <i data-lucide="tornado" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Gusts</span>
                         <span id="gust" class="detail-value">--</span>
@@ -81,7 +83,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="gauge" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Pressure</span>
                         <span id="pressure" class="detail-value">--</span>
@@ -89,7 +91,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">???</span>
+                    <i data-lucide="cloud-rain" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Precip</span>
                         <span id="precip" class="detail-value">--</span>
@@ -97,7 +99,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="cloudy" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Cloud Cover</span>
                         <span id="cloud" class="detail-value">--</span>
@@ -105,7 +107,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">???</span>
+                    <i data-lucide="eye" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Visibility</span>
                         <span id="visibility" class="detail-value">--</span>
@@ -113,7 +115,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">???</span>
+                    <i data-lucide="thermometer" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Dew Point</span>
                         <span id="dewpoint" class="detail-value">--</span>
@@ -121,7 +123,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel highlight-card">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="sun" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">UV Index</span>
                         <span id="uv" class="detail-value">--</span>
@@ -129,7 +131,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="flame" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Heat Index</span>
                         <span id="heatindex" class="detail-value">--</span>
@@ -137,7 +139,7 @@
                 </div>
                 
                 <div class="detail-card glass-panel">
-                    <span class="detail-icon">??</span>
+                    <i data-lucide="snowflake" class="detail-icon"></i>
                     <div class="detail-info">
                         <span class="detail-label">Wind Chill</span>
                         <span id="windchill" class="detail-value">--</span>
@@ -150,6 +152,9 @@
 
     <script src="script.js"></script>
     <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
         const originalGetWeather = getWeather;
         getWeather = function() {
             document.getElementById('icon').style.display = 'block';
